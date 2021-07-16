@@ -1,8 +1,12 @@
 // Mobile Price Increase
-const mobilePrice = document.getElementById('priceIncrease');
+const mobilePrice = document.getElementById('plusBtn');
 mobilePrice.addEventListener('click', function () {
-   const mobilePrice = increaseProduct(price);
-   console.log(priceIncrease)
+   const pBtn = document.getElementById('quantityIncrease').value;
+   const plusBtn = parseFloat(pBtn);
+   const total = plusBtn + 1;
+   document.getElementById('quantityIncrease').value = total;
+   const mPrice = document.getElementById('price').value;
+   console.log('cl', mPrice);
 });
 
 // Function for

@@ -1,32 +1,29 @@
 // Mobile Price Increase
 const mobilePrice = document.getElementById('plusBtn');
 mobilePrice.addEventListener('click', function () {
-   const pBtn = document.getElementById('quantityIncrease').value;
-   const plusBtn = parseFloat(pBtn);
-   const total = plusBtn + 1;
+   
+   const total = increaseProduct('quantityIncrease');
+   // Function Calling
+   updateMobilePrice('price', total);
+
    document.getElementById('quantityIncrease').value = total;
-   const mPrice = document.getElementById('price').value;
-   console.log('cl', mPrice);
 });
+const priceDecrease = document.getElementById('minusBtn');
+priceDecrease.addEventListener('click', function(){
+   const total2 = increaseProduct('quantityIncrease')
+   console.log('clicked', total2)
+})
 
 // Function for
 function increaseProduct(id) {
-   const productValue = document.getElementById(id).value;
-   const product = parseFloat(productValue);
-   return product;
+   const quantity = document.getElementById(id).value;
+   const quantityIncrease = parseInt(quantity) + 1;
+   return quantityIncrease;
 }
 
-function updateMobilePrice(id, addedPrice) {
-   const current = document.getElementById(id).innerText;
-   const currentNumber = parseFloat(current);
-   const totalAmount = addedPrice + currentNumber;
+function updateMobilePrice(id, totalProduct) {
+   // const current = document.getElementById(id).innerText;
+   // const currentPrice = parseInt(current);
+   const totalAmount = totalProduct * 1219;
    document.getElementById(id).innerText = totalAmount;
-}
-// const depositBtn = document.getElementById('addDeposit');
-// depositBtn.addEventListener('click', function () {
-//    const depositNumber = getInputNumber('depositAmount');
-//    updateSpanText('currentDeposit', depositNumber);
-//    updateSpanText('currentBalance', depositNumber);
-
-//    document.getElementById('depositAmount').value = '';
-// });
+};
